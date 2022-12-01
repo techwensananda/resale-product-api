@@ -12,7 +12,8 @@ router
 router
     .route("/:id")
     .get(categoryController.getProductsCategorie)
-    // .patch(categoryController.updateStoreById);
+    .delete(categoryController.getDeleteCategorie)
+// .patch(categoryController.updateStoreById);
 
 
 module.exports = router;

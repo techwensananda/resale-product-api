@@ -1,7 +1,8 @@
 const {
     createCategoryService,
     getAllCategoriesService,
-    getAllProductsService
+    getAllProductsService,
+    getdeleteCategoryService
 } = require("../services/categortService");
 
 exports.createCategory = async (req, res, next) => {
@@ -41,6 +42,22 @@ exports.getAllCategories = async (req, res, next) => {
 exports.getProductsCategorie = async (req, res, next) => {
     try {
         const categories = await getAllProductsService(req.params.id);
+        res.status(200).json({
+            status: "success",
+            data: categories,
+            message: "Successfully created the brand",
+        });
+    } catch (error) {
+        res.status(400).json({
+            status: "fail",
+            error: "couldn't get the categories",
+        });
+    }
+};
+
+exports.getDeleteCategorie = async (req, res, next) => {
+    try {
+        const categories = await getdeleteCategoryService(req.params.id);
         res.status(200).json({
             status: "success",
             data: categories,

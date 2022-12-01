@@ -17,3 +17,8 @@ exports.getAllProductsService = async (id) => {
     // const categories = await Category.find({}).populate("productlist");
     return categories;
 };
+exports.getdeleteCategoryService = async (id) => {
+    const categories = await Category.findByIdAndDelete(id)
+    // const categories = await Category.find({}).populate("productlist");
+    return categories;
+};
